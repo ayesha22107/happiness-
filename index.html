@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happiness Form</title>
+    <style>
+        /* Styling the Body element */
+        body {
+            background-color: #05c46b;
+            font-family: Verdana;
+            text-align: center;
+        }
+        /* Styling the Form */
+        form {
+            background-color: #fff;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px 20px;
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+        /* Styling form-control Class */
+        .form-control {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+        /* Styling form-control Label */
+        .form-control label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        /* Styling form-control input, select, textarea */
+        .form-control input,
+        .form-control select,
+        .form-control textarea {
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            padding: 10px;
+            display: block;
+            width: 95%;
+        }
+        /* Styling Button */
+        button {
+            background-color: #05c46b;
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 21px;
+            display: block;
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        /* Modal background styling */
+        .modal-background {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        /* Modal content box styling */
+        .modal-content {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            margin: 100px auto;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Close button styling */
+        .close-btn {
+            background-color: white;
+            color: #ff4d4d;
+            border: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+    <script>
+        function showAlertAndSubmit(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            // Show the modal dialog with the warning message
+            const modalBackground = document.getElementById('modalBackground');
+            modalBackground.style.display = 'block';
+        }
+
+        function closeModal() {
+            // Hide the modal dialog
+            const modalBackground = document.getElementById('modalBackground');
+            modalBackground.style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <h1>Happiness Form</h1>
+
+    <!-- Modal Popup for Warning Message -->
+    <div id="modalBackground" class="modal-background">
+        <div class="modal-content">
+            <p>Warning: Your information has been compromised. Be cautious and avoid sharing confidential information on unsecured platforms. This is a security alert.</p>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Form with onsubmit event to show the alert and submit -->
+    <form id="form" onsubmit="showAlertAndSubmit(event)">
+
+        <!-- Details -->
+        <div class="form-control">
+            <label for="name" id="label-name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required />
+        </div>
+
+        <div class="form-control">
+            <label for="email" id="label-email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required />
+        </div>
+
+        <div class="form-control">
+            <label for="age" id="label-age">Age</label>
+            <input type="text" id="age" placeholder="Enter your age" required />
+        </div>
+
+        <div class="form-control">
+            <label for="role" id="label-role">Which role are you in?</label>
+            <select name="role" id="role" required>
+                <option value="Chief Executive Officer">CEO</option>
+                <option value="Chief Operating Officer">COO</option>
+                <option value="Chief Financial Officer">CFO</option>
+                <option value="Chief Marketing Officer">CMO</option>
+                <option value="Marketing manager">Marketing manager</option>
+                <option value="Product manager">Product manager</option>
+                <option value="Project manager">Project manager</option>
+                <option value="Finance manager">Finance manager</option>
+                <option value="Human resources manager">HRM</option>
+                <option value="Marketing specialist">Marketing specialist</option>
+                <option value="Business analyst">Business analyst</option>
+                <option value="Human resource personnel">HRP</option>
+                <option value="Accountant">Accountant</option>
+                <option value="Sales representative">Sales representative</option>
+                <option value="Customer service representative">Customer service representative</option>
+                <option value="Administrative assistant">Administrative assistant</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label>Are you happy working for us?</label>
+            <label for="recommend-1">
+                <input type="radio" id="recommend-1" name="recommend" required>Yes
+            </label>
+            <label for="recommend-2">
+                <input type="radio" id="recommend-2" name="recommend">No
+            </label>
+            <label for="recommend-3">
+                <input type="radio" id="recommend-3" name="recommend">Not Sure
+            </label>
+        </div>
+
+        <div class="form-control">
+            <label>What could make you happy as an employee? <small>(Check all that apply)</small></label>
+            <label for="inp-1"><input type="checkbox" name="inp">Positive work environment</label>
+            <label for="inp-2"><input type="checkbox" name="inp">Flexible schedules</label>
+            <label for="inp-3"><input type="checkbox" name="inp">Constructive feedback</label>
+            <label for="inp-4"><input type="checkbox" name="inp">Provide incentives</label>
+            <label for="inp-5"><input type="checkbox" name="inp">Paid time off</label>
+            <label for="inp-6"><input type="checkbox" name="inp">Career development opportunities</label>
+            <label for="inp-7"><input type="checkbox" name="inp">Fairness among employees</label>
+            <label for="inp-8"><input type="checkbox" name="inp">Encourage breaks</label>
+            <label for="inp-9"><input type="checkbox" name="inp">Recognition and rewards</label>
+            <label for="inp-10"><input type="checkbox" name="inp">Having autonomy</label>
+        </div>
+
+        <div class="form-control">
+            <label for="comment">Any comments or suggestions</label>
+            <textarea name="comment" id="comment" placeholder="Enter your comment here"></textarea>
+        </div>
+
+        <!-- Submit button triggers form submission and alert -->
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
